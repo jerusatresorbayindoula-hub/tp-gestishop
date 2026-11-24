@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GestiShop - Produits</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Formulaire des produits -->
+    <div class="limiteform">
+        <h1>GestiShop - Produits</h1>
+        <form id="formulaire" novalidate>
+            <div>
+                <label for="nom">Nom du produit</label>
+                <input type="text" id="nom" required minlength="2" placeholder="ex. Souris sans fil">
+                <small id="erreurNom"></small>
+            </div>
+
+            <div>
+                <label for="categorie">Catégorie</label>
+                <select id="categorie" required>
+                    <option value="">-- Choisir --</option>
+                    <option value="informatique">Informatique</option>
+                    <option value="telephonie">Téléphonie</option>
+                    <option value="bureautique">Bureautique</option>
+                </select>
+                <small id="erreurCategorie"></small>
+            </div>
+
+            <div>
+                <label for="prix">Prix (FCFA)</label>
+                <input type="number" id="prix" min="1" required placeholder="ex. 7500">
+                <small id="erreurPrix"></small>
+            </div>
+
+            <div>
+                <label for="stock">Quantité en stock</label>
+                <input type="number" id="stock" min="0" step="1" required placeholder="45">
+                <small id="erreurStock"></small>
+            </div>
+
+            <div>
+                <label for="note">Note (0 à 5)</label>
+                <input type="number" id="note" min="0" max="5" step="0.1"  placeholder="4.1">
+                <small id="erreurNote"></small>
+            </div><br>
+
+            <div class="boutons">
+                <button type="submit" id="btnAdd" class="btnAdd">Ajouter</button>
+                <button type="reset" class="btnAnnule">Annuler</button>
+            </div>
+        </form>
+
+        <!-- Recherche -->
+        <div class="barre-recherche">
+            <input type="text" id="recherche" placeholder="🔍Rechercher un produit...">
+            <!-- categories -->
+            <select id="filtreCategorie">
+                <option value="">Toutes les catégories</option>
+                <option value="informatique">Informatique</option>
+                <option value="telephonie">Téléphonie</option>
+                <option value="bureautique">Bureautique</option>
+            </select>
+        </div>
+        
+
+        <!-- Tableau des produits -->
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Catégorie</th>
+                    <th class="montant tri" data-tri="prix">Prix</th>
+                    <th class="montant">Quantité</th>
+                    <th class="montant tri" data-tri="note">Note</th>
+                    <th class="montant tri" data-tri="total">Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody id="liste">
+            </tbody>
+        </table>
+
+        <!-- Statistiques -->
+        <section id="statistiques">
+            <p class="nombre">Nombre de produits <br> <span id="nombre">10</span></p>
+            <p class="valeur">Valeur totale du stock <br><span id="valeur">0</span><span> FCFA</span></p>
+            <p class="ruptureclass">Produits en rupture <br><span id="rupture">0</span></p>
+            <p class="note">Note moyenne <br><span id="moyenne">...</span></p>
+        </section>
+        <button type="button" id="reinitialiser">Réinitialiser</button>
+    </div>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
