@@ -204,3 +204,10 @@ th.tri {
     background-color: #5c5f63;
     color: white;
 }
+/* Les boutons du tableau : plus petits et espacés */
+td button {
+    width: auto; /* annule la largeur fixe de 100px : le bouton s'adapte à son texte */
+    padding: 6px 10px; /* réduit l'espace à l'intérieur du bouton */
+    font-size: 12px; /* diminue la taille du texte */
+    margin: 3px 2px; /* crée un petit espace autour de chaque bouton */
+}
